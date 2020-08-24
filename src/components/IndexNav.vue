@@ -4,9 +4,13 @@
             {{ city }}
         </div>
         <div class="navBox_mid">
-            <li v-for="(item,index) in optionList"  :class="{'navBox_active':actived == index}"  :key="index" @click="navActive($event,index)">
-                {{ item }}
-            </li>
+            <router-link v-for="(item,index) in optionList"    
+            :key="index" 
+            :to="item.path"
+            tag="li"
+            >
+                {{ item.name }}
+            </router-link>
             <span class="redBorder" :style="{left : borderMove +'rem'}"></span>
         </div>
         <div class="navBox_right">
@@ -20,7 +24,24 @@ export default {
     data(){
         return {
             city:'杭州▼',
-            optionList:['热映','影院','待映','经典电影'],
+            optionList:[
+                {
+                    name:'热映',
+                    path:'/wrap/hot'
+                },
+                {
+                    name:'影院',
+                    path:'/wrap/cinema'    
+                },
+                {
+                    name:'待映',
+                    path:'/wrap/wait'
+                },
+                {
+                    name:'经典电影',
+                    path:'/wrap/classic'    
+                }
+                ],
             actived:0,
             borderList:[.1,.5,0.95,1.45],
             borderMove:.1

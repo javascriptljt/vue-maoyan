@@ -1,15 +1,16 @@
 <template>
     <div class="footer_nav">
-        <div 
+        <router-link 
         class="footernav_item" 
         v-for="(item,index) in footernavlist" 
         :key="index" 
-        @click="footerActive($event,index)"
-        :class="{footernav_item_active:actived==index}"
+        tag="div"
+        :to="item.path"
+        active-class="footernav_item_active"
         >
             <span class="iconfont" :class="`icon-${item.icon}`"></span>
             <p>{{ item.name }}</p>
-        </div>
+        </router-link>
       
     </div>
 </template>
@@ -21,32 +22,33 @@ export default {
             footernavlist:[
                 {
                     name:'电影',
-                    icon:'dianying'
+                    icon:'dianying',
+                    path:'/wrap'
                 },
                 {
                     name:'视频',
-                    icon:'shipin'
+                    icon:'shipin',
+                    path:'/video'
                 },
                 {
                     name:'小视频',
-                    icon:'shipin'
+                    icon:'shipin',
+                    path:'/videos'
                 },
                 {
                     name:'演出',
-                    icon:'menpiao'
+                    icon:'menpiao',
+                    path:'/show'
                 },
                 {
                     name:'我的',
-                    icon:'wodexianxing'
+                    icon:'wodexianxing',
+                    path:'/mine'
                 }
             ],
-            actived:0
         }
     },
-    methods:{
-        footerActive(e,index){
-            this.actived=index
-        }
+    methods:{    
     }
 }
 </script>

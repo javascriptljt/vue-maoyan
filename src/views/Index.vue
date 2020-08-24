@@ -1,13 +1,6 @@
 <template>
     <div class="wrapBox">
-        <div class="headerWrap">
-        <index-header></index-header>
-        <index-nav></index-nav>
-        </div>
-        <div class="mainWrap">
-        <index-main></index-main>
-        <index-content></index-content>
-        </div>
+        <router-view></router-view>
         <index-footer></index-footer>
     </div>
 </template>
@@ -15,14 +8,6 @@
 
 
 <script>
-//首页头部组件
-import IndexHeader from '../components/IndexHeader';
-//导航栏
-import IndexNav from '../components/IndexNav';
-//头部宣传栏
-import IndexMain from '../components/IndexMain';
-//主题内容
-import IndexContent from '../components/IndexContent'
 //底部导航
 import IndexFooter from '../components/IndexFooter'
 export default {
@@ -31,12 +16,8 @@ export default {
 
         }
     },
-    components:{
-        IndexHeader,
-        IndexNav,
-        IndexMain,
-        IndexContent,
-        IndexFooter
+    components:{   
+        IndexFooter,
     }
 }
 </script>
